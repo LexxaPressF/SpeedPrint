@@ -3,10 +3,11 @@
     <div class="level behind_2"/>
     <div class="level behind_1"/>
     <div class="level rectangle">
-      <insertion-field class="element"/>
-      <indecators-frame class="element"/>
-      <keyboard-frame class="element"/>
-      <div class="empty"/>
+      <div class="content">
+        <insertion-field class="element"/>
+        <indecators-frame class="element"/>
+        <keyboard-frame class="element"/>
+      </div>
       <div class="level front"/>
     </div>
   </div>
@@ -30,13 +31,12 @@ export default {
   },
   methods:{
     move_bg(){
-      console.log(event.clientX)
       let behind_1 = document.querySelector('.behind_1');
       let behind_2 = document.querySelector('.behind_2');
       let front = document.querySelector('.front');
       let x = event.clientX / window.innerWidth;
       let y = event.clientY / window.innerHeight;
-      front.style.transform = 'translate(-' + x * 80 + 'px, -' + y * 80 + 'px)';
+      front.style.transform = 'translate(-' + x * 70 + 'px, -' + y * 70 + 'px)';
       behind_1.style.transform = 'translate(-' + x * 35 + 'px, -' + y * 35 + 'px)';
       behind_2.style.transform = 'translate(-' + x * 20 + 'px, -' + y * 20 + 'px)';
     }
@@ -68,7 +68,7 @@ export default {
   height: 105vh;
   width: 105vw;
   background-repeat: no-repeat;
-  background-size: 105% 105%;
+  background-size: cover;
   background-position: center;
   grid-row: 1;
   grid-column: 1;
@@ -84,21 +84,32 @@ export default {
   z-index: 2;
 }
 .rectangle{
-  background-image: url('./assets/background/rectangle.png');
+  /*background-image: url('./assets/background/rectangle.png');*/
   z-index: 3;
-  background-size: cover;
 
   height: 100vh;
   width: 100vw;
 
   display: grid;
-  grid-template-rows: 50% 50%;
-  grid-auto-columns: 10% auto 8% 10%;
+  grid-template-rows: 10% 80% 10%;
+  grid-template-columns: 5% 90% 5%;
+
 }
+
+.content{
+  grid-row: 2;
+  grid-column: 2;
+
+  display: grid;
+  grid-template-rows: repeat(2 ,50%);
+  grid-template-columns: 10% 72% 8% 10%;
+  border: 5px solid #FFFDFDFD;
+}
+
 .front{
   background-image: url('assets/background/front bubbles.png');
-  grid-row: 1/2;
-  grid-column: 1/4;
+  grid-row: 1/3;
+  grid-column: 1/3;
   z-index: 4;
 }
 
@@ -110,10 +121,5 @@ export default {
   display: grid;
   grid-template-rows: 1fr;
   grid-auto-columns: 1fr;
-}
-
-.empty{
-  grid-row: 1/2;
-  grid-column: 4;
 }
 </style>

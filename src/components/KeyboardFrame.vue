@@ -1,10 +1,15 @@
 <template>
- <div class="bg keyboard"></div>
+ <div class="bg keyboard">
+  <simple-keyboard/>
+ </div>
 </template>
 
 <script>
+ import SimpleKeyboard from "@/assets/Keyboard plug/Keyboard";
+
 export default {
-  name: "KeyboardFrame"
+  name: "KeyboardFrame",
+ components: {SimpleKeyboard}
 }
 </script>
 

@@ -2,6 +2,7 @@
 <div class="bg insertion">
 <div class="wrapper">
   <div class="text container">{{text}}</div>
+  <input :value="input" class="text container"/>
 </div>
 </div>
 </template>
@@ -14,6 +15,7 @@ export default {
   computed:{
     ...mapGetters({
       text: "getTextToPrint",
+      input: "getPrintedText"
     })
   },
   created() {
