@@ -1,8 +1,8 @@
 <template>
 <div class="bg insertion">
 <div class="wrapper">
+  <input :value="input" :disabled="1" class="input container"/>
   <div class="text container">{{text}}</div>
-  <input :value="input" class="text container"/>
 </div>
 </div>
 </template>
@@ -43,6 +43,16 @@ export default {
   backdrop-filter: blur(10px);
   box-shadow: 8px 8px 15px rgb(84, 198, 224),
   -8px -8px 15px rgb(253, 127, 153);
+}
+
+.input{
+  width: 100%;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 </style>
