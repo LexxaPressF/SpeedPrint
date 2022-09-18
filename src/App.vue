@@ -5,7 +5,7 @@
     <div class="level rectangle">
       <div class="content">
         <insertion-field class="element"/>
-        <indecators-frame class="element"/>
+        <indicators-frame class="element"/>
         <keyboard-frame class="element"/>
       </div>
       <div class="level front"/>
@@ -17,11 +17,11 @@
 
 import KeyboardFrame from "@/components/KeyboardFrame";
 import InsertionField from "@/components/InsertionField";
-import IndecatorsFrame from "@/components/IndecatorsFrame";
+import IndicatorsFrame from "@/components/IndicatorsFrame";
 export default {
   name: 'App',
   components: {
-    IndecatorsFrame,
+    IndicatorsFrame,
     InsertionField,
     KeyboardFrame
   },
@@ -52,7 +52,7 @@ export default {
 }
 
 .app {
-  min-width: 600px;
+  min-width: 1090px;
 
   height: 100vh;
   width: 100vw;
@@ -102,7 +102,7 @@ export default {
 
   display: grid;
   grid-template-rows: repeat(2 ,50%);
-  grid-template-columns: 10% 72% 8% 10%;
+  grid-template-columns: auto 840px 150px auto;
   border: 5px solid #FFFDFDFD;
 }
 

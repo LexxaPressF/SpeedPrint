@@ -10,26 +10,47 @@ export default {
         },
         deleteSymbol(ctx){
             ctx.commit('deleteSymbol')
+        },
+        clearPrintedText(ctx){
+            ctx.commit('clearPrintedText')
+        },
+        changeLang(ctx){
+            ctx.commit('changeLang')
         }
     },
     mutations: {
         updateText(state, data){
-            if (data === 'english'){
-                console.log(data)
-                getSomeEnglishText().then(res => state.textToPrint = res)
+            if (data === 'russian'){
+                getSomeRussianText().then(res => {
+                    state.textToPrint = res.text
+                    state.arrayToPrint = res.lines
+                })
             }
-            else getSomeRussianText().then(res => state.textToPrint = res)
+            else getSomeEnglishText().then(res => {
+                state.textToPrint = res.text
+                state.arrayToPrint = res.lines
+            })
         },
         addSymbol(state, data){
             state.printedText += data
         },
         deleteSymbol(state){
             state.printedText = state.printedText.slice(0, -1)
+        },
+        clearPrintedText(state) {
+            state.printedText = ''
+        },
+        changeLang(state) {
+            state.lang = state.lang === 'english' ? 'russian' : 'english'
+            this.commit('updateText', state.lang)
+            this.commit('clearPrintedText')
         }
     },
     state: {
         textToPrint: '',
+        arrayToPrint: [],
         printedText: '',
+        printedArray: [],
         lang: 'english',
         accuracy: 100,
         speed: 0
@@ -37,6 +58,8 @@ export default {
     getters: {
         getTextToPrint: state => state.textToPrint,
         getPrintedText: state => state.printedText,
+        getArrayToPrint: state => state.arrayToPrint,
+        getPrintedArray: state => state.printedArray,
         getLang: state =>  state.lang,
         getAccuracy: state => state.accuracy,
         getSpeed:  state => state.speed

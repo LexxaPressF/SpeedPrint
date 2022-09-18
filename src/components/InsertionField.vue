@@ -2,7 +2,14 @@
 <div class="bg insertion">
 <div class="wrapper">
   <input :value="input" :disabled="1" class="input container"/>
-  <div class="text container">{{text}}</div>
+  <div class="text container">
+    <div class="limiter">
+      <p v-for="line in charArray" :key="line">
+        <span v-for="letter in line" :key="letter">{{letter}}</span>
+      </p>
+      {{text}}
+    </div>
+  </div>
 </div>
 </div>
 </template>
@@ -15,11 +22,12 @@ export default {
   computed:{
     ...mapGetters({
       text: "getTextToPrint",
+      charArray: "getArrayToPrint",
       input: "getPrintedText"
     })
   },
   created() {
-    this.$store.dispatch('updateText', 'russian')
+    this.$store.dispatch('updateText', 'english')
   }
 }
 </script>
@@ -37,16 +45,16 @@ export default {
 
 .container{
   padding: 20px;
-  font-size: 1.3rem;
-  /*color: white;*/
+  font-size: 20px;
   border-radius: 30px;
   backdrop-filter: blur(10px);
-  box-shadow: 8px 8px 15px rgb(84, 198, 224),
-  -8px -8px 15px rgb(253, 127, 153);
+  box-shadow: 6px 6px 12px rgb(84, 198, 224),
+  -6px -6px 12px rgb(253, 127, 153);
 }
 
 .input{
   width: 100%;
+  height: 40px;
 }
 
 .wrapper{
@@ -55,4 +63,14 @@ export default {
   gap: 30px;
 }
 
+.text{
+  height: 150px;
+}
+
+.limiter{
+  height: 115px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: clip;
+}
 </style>

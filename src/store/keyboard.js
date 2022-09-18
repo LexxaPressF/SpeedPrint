@@ -8,14 +8,14 @@ export default {
                 "{tab} й ц у к у н г ш щ з х ъ \\",
                 "{capslock} ф ы в а п р о л д ж э {enter}",
                 "{shiftleft} я ч с м и т ь б ю . {shiftright}",
-                "{controlleft} {altleft} {space} {altright}"
+                "{space}"
             ],
             shift: [
                 "Ё ! @ # $ % ^ & * ( ) _ + {backspace}",
                 "{tab} Й Ц У К Е Н Г Ш Щ З Х Ъ /",
                 "{capslock} Ф Ы В А П Р О Л Д Ж Э {enter}",
                 "{shiftleft} Я Ч С М И Т Ь Б Ю ,{shiftright}",
-                "{controlleft} {altleft} {space} {altright}"
+                "{space}"
             ]
         },
         engLayout:{
@@ -24,14 +24,14 @@ export default {
                 "{tab} q w e r t y u i o p [ ] \\",
                 "{capslock} a s d f g h j k l ; ' {enter}",
                 "{shiftleft} z x c v b n m , . / {shiftright}",
-                "{controlleft} {altleft} {space} {altright}"
+                "{space}"
             ],
             shift: [
                 "~ ! @ # $ % ^ & * ( ) _ + {backspace}",
                 "{tab} Q W E R T Y U I O P { } |",
                 '{capslock} A S D F G H J K L : " {enter}',
                 "{shiftleft} Z X C V B N M < > ? {shiftright}",
-                "{controlleft} {altleft} {space} {altright}"
+                "{space}"
             ]
         },
         display: {
@@ -43,11 +43,7 @@ export default {
             "{shiftright}": "shift ⇧",
             "{controlleft}": "ctrl",
             "{controlright}": "ctrl",
-            "{altleft}": "alt",
-            "{altright}": "alt",
-            "{metaleft}": "cmd ⌘",
-            "{metaright}": "cmd ⌘",
-            "{space}": "          "
+            "{space}": " "
         }
     },
     getters:{

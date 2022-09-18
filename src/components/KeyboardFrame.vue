@@ -16,7 +16,9 @@ export default {
 <style scoped>
 .keyboard{
   grid-row: 2;
-  grid-column: 2/3;
+  grid-column: 2/4;
+ display: flex;
+ place-items: center;
 }
 
 

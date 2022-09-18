@@ -57,9 +57,21 @@
             }
         },
         watch: {
-            input(input) {
-                this.keyboard.setInput(input);
+            lang(selectedLang){
+                let layout = selectedLang == 'english' ? this.eng_layout : this.rus_layout
+                this.keyboard.setOptions({
+                    layout: layout
+                })
             }
         }
     };
 </script>
+
+<style scoped>
+.hg-theme-default{
+    border-radius: 15px;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    cursor: default;
+}
+</style>
