@@ -40,6 +40,6 @@ export async function getSomeEnglishText(){
     })
     const obj = {}
     obj.text = data
-    obj.lines = strToLines(data, 89)
+    obj.lines = strToLines(data, 92)
     return obj
 }

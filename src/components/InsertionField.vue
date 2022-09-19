@@ -1,13 +1,12 @@
 <template>
 <div class="bg insertion">
 <div class="wrapper">
-  <input :value="input" :disabled="1" class="input container"/>
+  <input :value="inputText" :disabled="1" class="input container"/>
   <div class="text container">
     <div class="limiter">
-      <p v-for="line in charArray" :key="line">
+      <p v-for="line in arrayToPrint" :key="line">
         <span v-for="letter in line" :key="letter">{{letter}}</span>
       </p>
-      {{text}}
     </div>
   </div>
 </div>
@@ -21,13 +20,25 @@ export default {
   name: "InsertionField",
   computed:{
     ...mapGetters({
-      text: "getTextToPrint",
-      charArray: "getArrayToPrint",
-      input: "getPrintedText"
+      arrayToPrint: "getArrayToPrint",
+      inputText: "getPrintedText",
+      printedArray: "getPrintedArray"
     })
   },
   created() {
     this.$store.dispatch('updateText', 'english')
+  },
+  watch:{
+    inputText(){
+      if (this.printedArray[this.printedArray.length - 1] !== this.arrayToPrint[0][this.printedArray.length - 1]){
+        // alert('You printed wrong letter!')
+        this.$store.dispatch('deleteSymbol')
+      }
+      if (this.printedArray.length === this.arrayToPrint[0].length){
+        this.$store.dispatch('clearPrintedText')
+        this.arrayToPrint.shift()
+      }
+    }
   }
 }
 </script>
@@ -54,6 +65,7 @@ export default {
 
 .input{
   width: 100%;
+  font-size: 18px;
   height: 40px;
 }
 

@@ -33,12 +33,15 @@ export default {
         },
         addSymbol(state, data){
             state.printedText += data
+            state.printedArray.push(data)
         },
         deleteSymbol(state){
             state.printedText = state.printedText.slice(0, -1)
+            state.printedArray.pop()
         },
         clearPrintedText(state) {
             state.printedText = ''
+            state.printedArray = []
         },
         changeLang(state) {
             state.lang = state.lang === 'english' ? 'russian' : 'english'

@@ -5,7 +5,7 @@ export default {
         rusLayout:{
             default: [
                 "ё 1 2 3 4 5 6 7 8 9 0 - = {backspace}",
-                "{tab} й ц у к у н г ш щ з х ъ \\",
+                "{tab} й ц у к е н г ш щ з х ъ \\",
                 "{capslock} ф ы в а п р о л д ж э {enter}",
                 "{shiftleft} я ч с м и т ь б ю . {shiftright}",
                 "{space}"
@@ -14,7 +14,7 @@ export default {
                 "Ё ! @ # $ % ^ & * ( ) _ + {backspace}",
                 "{tab} Й Ц У К Е Н Г Ш Щ З Х Ъ /",
                 "{capslock} Ф Ы В А П Р О Л Д Ж Э {enter}",
-                "{shiftleft} Я Ч С М И Т Ь Б Ю ,{shiftright}",
+                "{shiftleft} Я Ч С М И Т Ь Б Ю , {shiftright}",
                 "{space}"
             ]
         },

@@ -43,14 +43,27 @@
                 if (button === "{backspace}") {
                     this.$store.dispatch('deleteSymbol')
                 }
-                else if (button === "{shiftleft}" || button === "{shiftright}" || button === "{lock}") this.handleShift()
                 else if (button === "{space}") this.$store.dispatch('addSymbol', ' ')
+                else if (button === "{capslock}") this.handleCaps()
+                else if (button === "{shiftleft}" || button === "{shiftright}") this.handleShift()
                 else this.$store.dispatch('addSymbol', button)
             },
             handleShift() {
+                this.keyboard.setOptions({
+                    layoutName: "shift"
+                });
+
+                onkeyup = (event) => {
+                    if (event.shiftKey){
+                        this.keyboard.setOptions({
+                            layoutName: "default"
+                        });
+                    }
+                }
+            },
+            handleCaps(){
                 let currentLayout = this.keyboard.options.layoutName;
                 let shiftToggle = currentLayout === "default" ? "shift" : "default";
-
                 this.keyboard.setOptions({
                     layoutName: shiftToggle
                 });
@@ -63,6 +76,9 @@
                     layout: layout
                 })
             }
+        },
+        unmounted(){
+            this.keyboard = null
         }
     };
 </script>
