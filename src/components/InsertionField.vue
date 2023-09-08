@@ -30,12 +30,16 @@ export default {
   },
   watch:{
     inputText(){
+      if (this.printedArray.length === 1){
+        this.$store.dispatch('startTimer')
+      }
       if (this.printedArray[this.printedArray.length - 1] !== this.arrayToPrint[0][this.printedArray.length - 1]){
-        // alert('You printed wrong letter!')
+        this.$store.dispatch('addMistake')
         this.$store.dispatch('deleteSymbol')
       }
       if (this.printedArray.length === this.arrayToPrint[0].length){
         this.$store.dispatch('clearPrintedText')
+        this.$store.dispatch('clearCurrentMistakes')
         this.arrayToPrint.shift()
       }
     }

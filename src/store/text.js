@@ -55,8 +55,6 @@ export default {
         printedText: '',
         printedArray: [],
         lang: 'english',
-        accuracy: 100,
-        speed: 0
     },
     getters: {
         getTextToPrint: state => state.textToPrint,

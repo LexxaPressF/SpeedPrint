@@ -7,6 +7,7 @@
         <insertion-field class="element"/>
         <indicators-frame class="element"/>
         <keyboard-frame class="element"/>
+        <total-indicators class="element"></total-indicators>
       </div>
       <div class="level front"/>
     </div>
@@ -18,9 +19,11 @@
 import KeyboardFrame from "@/components/KeyboardFrame";
 import InsertionField from "@/components/InsertionField";
 import IndicatorsFrame from "@/components/IndicatorsFrame";
+import TotalIndicators from "@/components/TotalIndicators.vue";
 export default {
   name: 'App',
   components: {
+    TotalIndicators,
     IndicatorsFrame,
     InsertionField,
     KeyboardFrame
@@ -101,7 +104,7 @@ export default {
   grid-column: 2;
 
   display: grid;
-  grid-template-rows: repeat(2 ,50%);
+  grid-template-rows: 50% 10% 40%;
   grid-template-columns: auto 840px 150px auto;
   border: 5px solid #FFFDFDFD;
 }

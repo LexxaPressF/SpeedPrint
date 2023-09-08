@@ -3,11 +3,11 @@
     <div class="wrapper">
         <div class="accuracy">
             <h1> Точность </h1>
-            <p>тут будет значение</p>
+            <p>{{ mistakesCount }} Ошибок</p>
         </div>
         <div class="speed">
-            <h1> Скорость </h1>
-            <p>тут будет значение</p>
+            <h1> Таймер </h1>
+            <p>{{secsToTimer}}</p>
         </div>
         <label class="langSwitcher">
             <input type="checkbox"
@@ -32,14 +32,24 @@ export default {
     },
     computed: {
       ...mapGetters({
-          lang: 'getLang'
-      })
+          lang: 'getLang',
+          mistakesCount: "getCurrentMistakesCount",
+        currentTimerValue: "getCurrentTimerValue"
+      }),
+      secsToTimer(){
+        let sec = this.currentTimerValue
+        let min = parseInt(sec/60)
+        if (sec-min*60 < 10) return `${min}:0${sec-min*60}`
+        else return `${min}:${sec-min*60}`
+      }
     },
     watch: {
       language(){
           this.$store.dispatch('changeLang')
+          this.$store.dispatch('stopTimer')
+          this.$store.dispatch('clearCurrentMistakes')
       }
-    }
+    },
 }
 </script>
 
@@ -127,6 +137,11 @@ input:checked + .slider:before {
 
 input:checked + .slider:after {
     content: 'RUSSIAN';
+}
+
+p {
+  margin: 6px;
+  text-align: center;
 }
 
 </style>
