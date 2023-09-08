@@ -17,7 +17,12 @@ export function strToLines(text, lettersInLine) {
             i = lastSpaceInLine + 1
         }
     }
-    return arrayOfLines
+    return arrayOfLines.map(item => item === '—'? '-': item)
+                       .map(item => {
+                           if (item === 'ё') return 'Е'
+                           else if (item === 'Ё') return 'Е'
+                           else return item
+                       })
 }
 
 export async function getSomeRussianText(){
