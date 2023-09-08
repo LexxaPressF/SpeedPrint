@@ -10,7 +10,10 @@
             <p>тут будет значение</p>
         </div>
         <label class="langSwitcher">
-            <input type="checkbox" class="checkbox" v-model="checked" />
+            <input type="checkbox"
+                   class="checkbox"
+                   v-model="language"
+                   @keydown.space.prevent/>
             <span class="slider"></span>
         </label>
     </div>
@@ -24,7 +27,7 @@ export default {
   name: "IndecatorsFrame",
     data() {
       return{
-          checked: false
+          language: false
     }
     },
     computed: {
@@ -33,7 +36,7 @@ export default {
       })
     },
     watch: {
-      checked(){
+      language(){
           this.$store.dispatch('changeLang')
       }
     }
@@ -66,6 +69,8 @@ export default {
     width: 100%;
     height: 100%;
     z-index: 100;
+    outline: none;
+    tab-index: -1;
 }
 
 .slider {
