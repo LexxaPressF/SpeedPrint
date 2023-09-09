@@ -19,7 +19,9 @@ export default {
             state.currentMistakesCount += 1
         },
         startTimer(state) {
-            state.currentTimer = setInterval(()=> state.currentTimerValue += 1, 1000)
+            if (state.currentTimer === 0){
+                state.currentTimer = setInterval(()=> state.currentTimerValue += 1, 1000)
+            }
         },
         stopTimer(state) {
             clearInterval(state.currentTimer)
